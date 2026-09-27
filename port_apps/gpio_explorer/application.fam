@@ -1,0 +1,17 @@
+App(
+    appid="gpio_explorer_app",
+    name="GPIO Explorer",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="main_gpio_explorer_app",
+    stack_size=16 * 1024,
+    requires=[
+        "gui",
+        "storage",
+        "notification",
+    ],
+    order=10,
+    fap_category="GPIO",
+    fap_author="dun-crop / Cardputer port",
+    fap_version="1.0-cardputer",
+    fap_description="GPIO Explorer port for M5Stack Cardputer ADV Grove GPIO1/GPIO2"
+)
