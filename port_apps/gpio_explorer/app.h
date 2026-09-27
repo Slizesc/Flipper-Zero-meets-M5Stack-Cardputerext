@@ -8,6 +8,7 @@
 #include "gpio_explorer_gpio_reader_struct.h"
 #include "gpio_explorer_submenu_index_enum.h"
 #include "gpio_explorer_view_enum.h"
+#include <boards/board.h>
 
 #define TAG "GPIOExplorer"
 #define BACKLIGHT_ON 0
@@ -33,9 +34,12 @@ static const char* const rgb_setting_pins[] = {"G2 (SDA)", "G1 (SCL)"};
 static const char* const rgb_colors[] =
     {"White", "Red", "Green", "Blue", "Purple", "Yellow", "Cyan"};
 
+static const GpioPin gpio_explorer_g2 = {.port = NULL, .pin = BOARD_PIN_QWIIC_SDA};
+static const GpioPin gpio_explorer_g1 = {.port = NULL, .pin = BOARD_PIN_QWIIC_SCL};
+
 static const GpioPin* const pins[] = {
-    gpio_pins[0].pin,
-    gpio_pins[1].pin,
+    &gpio_explorer_g2,
+    &gpio_explorer_g1,
 };
 
 int32_t main_gpio_explorer_app(void* _p);
